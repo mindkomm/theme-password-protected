@@ -1,0 +1,19 @@
+{
+  "name": "mindkomm/theme-password-protected",
+  "description": "Use a specific template for password protected posts.",
+  "license": "MIT",
+  "require": {
+      "php": ">=5.6"
+    },
+  "autoload": {
+    "files": [
+      "autoload.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Lukas Gaechter",
+      "email": "lukas.gaechter@mind.ch"
+    }
+  ]
+}
