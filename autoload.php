@@ -13,12 +13,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'template_include', function( $template ) {
 	global $post;
 
-	if ( ! empty( $post ) && post_password_required( $post->ID ) ) {
-		$template = locate_template( [
-			'password-protected.php',
-			"password-protected-{$post->post_type}.php",
-		] ) ?: $template;
+	if ( ! is_singular()
+		|| empty( $post )
+		|| ! post_password_required( $post->ID )
+	) {
+		return $template;
 	}
+
+	$template = locate_template( [
+		'password-protected.php',
+		"password-protected-{$post->post_type}.php",
+	] ) ?: $template;
 
 	return $template;
 }, 99 );
